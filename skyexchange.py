@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from exchangelib import Credentials, Account,Configuration,DELEGATE
-
+#172.22.3.166    mail.skyguardex.com
 email= 'zhoubaodong@skyguardex.com'
 pwd = 'Firewall1'
 credentials = Credentials(email, pwd)
