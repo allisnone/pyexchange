@@ -1,8 +1,16 @@
 #!/usr/bin/env python
-from exchangelib import Credentials, Account
+from exchangelib import Credentials, Account,Configuration,DELEGATE
 
-credentials = Credentials('john@example.com', 'topsecret')
-account = Account('john@example.com', credentials=credentials, autodiscover=True)
+email= 'zhoubaodong@skyguardex.com'
+pwd = 'Firewall1'
+credentials = Credentials(email, pwd)
+
+config = Configuration(server='mail.skyguardex.com', credentials=credentials)
+
+account = Account(primary_smtp_address=email, config=config,
+                  autodiscover=False, access_type=DELEGATE)
+
+#account = Account(email, credentials=credentials, autodiscover=True)
 
 for item in account.inbox.all().order_by('-datetime_received')[:100]:
     print(item.subject, item.sender, item.datetime_received)
