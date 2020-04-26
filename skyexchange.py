@@ -42,3 +42,12 @@ class Skyexchange():
     
     def isolate_mail(self):
         return
+    
+    def send_mail(self):
+        return
+    
+    def send_mail_bcc(self):
+        return
+    
+    def form_mail(self):
+        return
