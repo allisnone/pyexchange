@@ -1,15 +1,23 @@
 #!/usr/bin/env python
 from exchangelib import Credentials, Account,Configuration,DELEGATE
 #172.22.3.166    mail.skyguardex.com
-email= 'zhoubaodong@skyguardex.com'
-pwd = 'Firewall1'
+server = '172.22.3.166'
+#server = 'mail.skyguardex.com'
+email= 'it@skyguardex.com'
+pwd = 'Firewall!3'
 
+pwd = 'Firewall1!'
 #* PrimarySMTPAddress
 #* WINDOMAIN\\username
 #* User Principal Name (UPN)
-credentials = Credentials(email, pwd)
 
-config = Configuration(server='mail.skyguardex.com', credentials=credentials)
+#credentials = Credentials(email, pwd)
+
+credentials = Credentials('skyguardex\\it', pwd)
+#email= 'Administrator@skyguardex.com'
+#credentials = Credentials('skyguardex\\Administrator', pwd)
+
+config = Configuration(server=server, credentials=credentials,auth_type='NTLM')
 #config = Configuration(service_endpoint='https://mail.example.com/EWS/Exchange.asmx', credentials=credentials)
 
 account = Account(primary_smtp_address=email, config=config,
