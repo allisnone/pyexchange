@@ -200,7 +200,9 @@ if __name__ == '__main__':
     password = obj['password']
     #admin_password = 'Firewall1'
     domain = obj['domain']
-    exg_obj = Skyexchange(target_email, action=action,admin_username=admin,admin_password=password, server='mail.skyguardgx.com',domain=domain,auth_type='NTLM',port=443,isolate_folder='isolate',task_id=task_id)
+    exg_obj = Skyexchange(target_email, action=action,admin_username=admin,admin_password=password, 
+            server='mail.skyguardgx.com',domain=domain,auth_type='NTLM',port=443,
+            isolate_folder='isolate',task_id=task_id)
     exg_obj.action(target_email,action_type=action, subject=file_name,startwith='',datetime='')
     print('{0} mail completed: {1} --{2} '.format(action,file_path,file_name))
     
