@@ -17,7 +17,7 @@ for item in account.inbox.all().order_by('-datetime_received')[:100]:
 # The folder structure is cached after first access to a folder hierarchy. This means that external
 # changes to the folder structure will not show up until you clear the cache. Here's how to clear
 # the cache of each of the currently supported folder hierarchies:
-from exchangelib import Account, Folder
+from exchangelib import Account, Folder,FolderCollection
 
 a = Account(...)
 a.root.refresh()
@@ -45,12 +45,12 @@ some_folder.parts  # returns some_folder and all its parents, as Folder instance
 print(a.root.tree())
 '''
 root
-├── inbox
-│   └── todos
-└── archive
-    ├── Last Job
-    ├── exchangelib issues
-    └── Mom
+鈹溾攢鈹� inbox
+鈹�   鈹斺攢鈹� todos
+鈹斺攢鈹� archive
+    鈹溾攢鈹� Last Job
+    鈹溾攢鈹� exchangelib issues
+    鈹斺攢鈹� Mom
 '''
 
 # Folders have some useful counters:
@@ -465,7 +465,7 @@ for item in a.inbox.all():
 
 # Create a new item with an attachment
 item = Message(...)
-binary_file_content = 'Hello from unicode æøå'.encode('utf-8')  # Or read from file, BytesIO etc.
+binary_file_content = 'Hello from unicode 忙酶氓'.encode('utf-8')  # Or read from file, BytesIO etc.
 my_file = FileAttachment(name='my_file.txt', content=binary_file_content)
 item.attach(my_file)
 my_calendar_item = CalendarItem(...)
